@@ -1,4 +1,10 @@
 defmodule KV do
+  use Application
+
+  def start(_type, _args) do
+    KV.Supervisor.start_link(name: KV.Supervisor)
+  end
+
   @moduledoc """
   Documentation for KV.
   """
@@ -14,5 +20,8 @@ defmodule KV do
   """
   def module_name do
     __MODULE__
+  end
+  def test(options) do
+    IO.inspect(options)
   end
 end
